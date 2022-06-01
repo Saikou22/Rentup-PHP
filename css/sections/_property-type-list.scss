@@ -1,0 +1,11 @@
+.property-type-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    .card {
+        width: 250px;
+        padding: 1rem;
+    }
+}

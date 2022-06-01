@@ -1,0 +1,107 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+#main-header {
+    position: fixed;
+    width: 100%;
+    padding: 1rem 0;
+    z-index: 1;
+    background-color: white;
+    box-shadow: 0 5px 30px rgba(0, 22, 84, 0.1);
+
+    .logo {
+        max-width: 200px;
+    }
+
+    ul {
+        display: flex;
+        list-style-type: none;
+    }
+
+    .container-header {
+        .container-header-right {
+            flex-grow: 1; /* Cet élément doit prendre tout l'espace dispo */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .main-navigation {
+                > ul {
+                    li {
+                        a {
+                            display: inline-block;
+                            padding: 1rem;
+                            color: black;
+                            text-decoration: none;
+                            transition: color 0.5s;
+        
+                            &:hover {
+                                color: variables.$color-primary;
+        
+                                &::after {
+                                    transform: rotate(90deg);
+                                }
+                            }
+                        }
+        
+                        &.sub-menu {
+                            &:hover {
+                                ul {
+                                    display: block;
+                                }
+                            }
+        
+                            ul {
+                                position: absolute;
+                                display: none;
+                                flex-direction: column;
+                                margin: 0;
+                                padding: 0;
+                                box-shadow: 0 0 42px 0 rgb(32 32 32 / 15%);
+                                background-color: white;
+                            }
+        
+                            > a {
+                                &::after {
+                                    content: '>';
+                                    display: inline-block;
+                                    transition: transform 0.5s;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .user-navigation {
+                ul {
+                    display: flex;
+                    list-style-type: none;
+                    align-items: center;
+
+                    .number{
+                        padding: 0 4px;
+                        font-size: small;
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include mixins.desktop {
+    #main-header {
+        .container-header {
+            justify-content: space-between;
+
+            .container-header-right {
+                flex-grow: 0;
+                
+                .main-navigation {
+                    display: none;
+                }
+            }
+        }
+    }
+}

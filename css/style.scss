@@ -1,0 +1,18 @@
+@import 'normalize.css';
+@import 'font-awesome/scss/font-awesome';
+
+@import './base/elements';
+@import './components/buttons';
+@import './components/badges';
+@import './components/cards';
+@import './layout/containers';
+@import './layout/sections';
+@import './layout/header';
+@import './layout/pre-footer';
+@import './layout/footer';
+
+@import './sections/home';
+@import './sections/property-type-list';
+@import './sections/property-list';
+@import './sections/city-list';
+@import './sections/agents';
